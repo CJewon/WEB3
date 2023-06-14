@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+        출생년도를 입력 받은 뒤
+        성인일경우 판매하고,
+        성인이 아닐경우 몇년뒤 다시 오라는 메세지를 출력하게 해주세요
+     -->
+
+    <script>
+      const userBirth = Number(prompt("출생년도를 입력하세요", ""));
+      const todayYear = new Date().getFullYear();
+
+      const userOld = todayYear - userBirth + 1;
+
+      // 3항 연산자version
+
+      const sale =
+        userOld >= 20 ? "판매완료" : `${20 - userOld}년뒤에 다시와~!`;
+
+      alert(sale);
+
+      //if문 version
+
+      //   if (old >= 20) {
+      //     alert("판매완료");
+      //   } else {
+      //     alert(`${20 - old}년뒤에 다시 와~!`);
+      //   }
+    </script>
+  </body>
+</html>

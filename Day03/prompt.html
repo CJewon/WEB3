@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+        출생 년도를 입력하면
+        현재 나이를 알림창에 알려주게 만들어주세요!
+     -->
+    <script>
+      const birth = Number(prompt("출생년도를 입력하세요", ""));
+
+      const todayYear = new Date().getFullYear();
+
+      console.log(todayYear);
+
+      const nowYear = Number(prompt("올해년도를 입력하세요", ""));
+
+      //   const nowYear = 2023;
+
+      const old = nowYear - birth + 1;
+
+      alert("당신의 나이는 " + old + "살입니다");
+    </script>
+  </body>
+</html>
