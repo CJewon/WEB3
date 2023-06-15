@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const fruit = Number(prompt("과일이 몇 개입니까?"));
+      let basket;
+      basket = Math.floor(fruit / 10) + 1;
+      if (fruit % 10 == 0) {
+        alert(`바구니는 ${basket - 1}개 필요합니다`);
+      } else {
+        alert(`바구니는 ${basket}개 필요합니다.`);
+      }
+    </script>
+  </body>
+</html>
