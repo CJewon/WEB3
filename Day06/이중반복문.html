@@ -2,38 +2,35 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
   <style>
     .container {
+      width: 1000px;
       margin: 0 auto;
       display: flex;
-      flex-direction: column;
-      width: 1200px;
-      gap: 10px;
-      padding: 20px;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
     }
 
-    .document {
+    .mul {
       width: 200px;
-      height: 100px;
       border: 1px solid #222;
-      background-color: pink;
-      text-align: center;
-      line-height: 100px;
+      border-radius: 4px;
     }
   </style>
   <body>
     <script>
       document.write('<div class="container">');
-      for (let i = 0; i < 5; i++) {
-        for (let j = 0; j < 5; j++) {
-          document.write('<div class="document">div');
-          document.write("</div>");
+      for (let i = 1; i < 10; i++) {
+        document.write('<div class="mul">');
+        document.write(`<h3>${i}단</h3>`);
+        for (let j = 1; j < 10; j++) {
+          document.write(`<p>${i} x ${j} = ${i * j}</p>`);
         }
-        document.write("<br>");
+        document.write("</div>");
       }
       document.write("</div>");
     </script>
