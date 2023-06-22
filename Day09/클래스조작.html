@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="container" class="container hi bye good html"></div>
+
+    <script>
+      const container = document.getElementById("container");
+
+      container.classList.add("oh-my-god"); // 클래스추가
+      container.classList.remove("hi"); // 클래스삭제
+      container.classList.contains("good"); // contains메서드는 개채 안에 해당 클래스가 있는지 확인. 있으면 true, 없으면 false
+      container.classList.toggle("토글스위치"); // on,off 기능과 비슷
+    </script>
+  </body>
+</html>
