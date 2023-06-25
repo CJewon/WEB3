@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 배열 하나 만들고,
+      // 랜덤한 숫자(0~9)를 4개 넣어주세요.
+      // 배열에 값 추가하기 : 배열.push(추가할값);
+
+      const ranNum = [];
+      const selectNum = [];
+
+      for (let i = 0; i < 4; i++) {
+        let newNum;
+
+        while (true) {
+          newNum = Math.floor(Math.random() * 10);
+
+          if (ranNum.indexOf(newNum) === -1) {
+            break;
+          }
+        }
+      }
+      console.log(ranNum);
+
+      // 승리조건
+
+      if (ranNum === selectNum) {
+        ("맞췄습니다!");
+      }
+    </script>
+  </body>
+</html>

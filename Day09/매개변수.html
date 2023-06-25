@@ -60,6 +60,7 @@
         <button id="컴퓨터버튼" class=""></button>
       </div>
       <p id="result">결과</p>
+      <p id="win-count">총승리 : xx회, 연승 xx회</p>
     </div>
 
     <script>
@@ -70,8 +71,12 @@
       const 보버튼 = document.getElementById("보버튼");
       const 컴퓨터버튼 = document.getElementById("컴퓨터버튼");
       const result = document.getElementById("result");
+      const 승리표시 = document.getElementById("win-count");
 
       let comupter;
+
+      let totalWin = 0;
+      let 연승 = 0;
 
       // 버튼을 누르면 어떤 일이 벌어져야하는가?
 
@@ -89,18 +94,18 @@
       function 가위바위보(유저의선택) {
         컴퓨터의차례();
         if (comupter === 유저의선택) {
-          // alert("무승부");
           result.innerText = "무승부입니다!";
         } else if (
           (comupter === 1 && 유저의선택 === 0) ||
           (comupter === 2 && 유저의선택 === 1) ||
           (comupter === 0 && 유저의선택 === 2)
         ) {
-          // alert("패배");
           result.innerText = "패배했습니다";
+          연승 = 0;
         } else {
-          // alert("승리");
           result.innerText = "축하합니다! 승리하셨습니다!";
+          연승++;
+          totalWin++;
         }
 
         function 컴퓨터의차례() {
@@ -125,26 +130,9 @@
             컴퓨터버튼.classList.remove("보버튼");
           }
         }
-
-        // function 버튼변경(컴퓨터의선택) {
-        //   if(comupter === 0) {
-        //     alert("컴 : 가위");
-        //     컴퓨터버튼.classList.add("가위버튼");
-        //     컴퓨터버튼.classList.remove("바위버튼");
-        //     컴퓨터버튼.classList.remove("보버튼");
-        //   } else if (comupter === 1) {
-        //     alert("컴 : 바위");
-        //     컴퓨터버튼.classList.remove("가위버튼");
-        //     컴퓨터버튼.classList.add("바위버튼");
-        //     컴퓨터버튼.classList.remove("보버튼");
-        //   } else {
-        //     alert("컴 : 보");
-        //     컴퓨터버튼.classList.remove("가위버튼");
-        //     컴퓨터버튼.classList.remove("바위버튼");
-        //     컴퓨터버튼.classList.add("보버튼");
-        //   }
-        // }
       }
+
+      승리표시.innerText = `총 승리 : ${totalWin}회, 연승 : ${연승}회`;
 
       /*
         function 함수이름1() {
