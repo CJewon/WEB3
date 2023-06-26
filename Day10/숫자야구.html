@@ -6,32 +6,200 @@
     <title>Document</title>
   </head>
   <body>
+    <div class="wrapper">
+      <div class="game-board">
+        <div class="round">
+          <div class="status">
+            <div class="status-light"></div>
+            <div class="status-light"></div>
+            <div class="status-light"></div>
+            <div class="status-light"></div>
+          </div>
+          <div class="number-container">
+            <div class="number-place"></div>
+            <div class="number-place"></div>
+            <div class="number-place"></div>
+            <div class="number-place"></div>
+          </div>
+        </div>
+        <div class="round">
+          <div class="status">
+            <div class="status-light"></div>
+            <div class="status-light"></div>
+            <div class="status-light"></div>
+            <div class="status-light"></div>
+          </div>
+          <div class="number-container">
+            <div class="number-place"></div>
+            <div class="number-place"></div>
+            <div class="number-place"></div>
+            <div class="number-place"></div>
+          </div>
+        </div>
+        <div class="round">
+          <div class="status">
+            <div class="status-light"></div>
+            <div class="status-light"></div>
+            <div class="status-light"></div>
+            <div class="status-light"></div>
+          </div>
+          <div class="number-container">
+            <div class="number-place"></div>
+            <div class="number-place"></div>
+            <div class="number-place"></div>
+            <div class="number-place"></div>
+          </div>
+        </div>
+        <div class="round">
+          <div class="status">
+            <div class="status-light"></div>
+            <div class="status-light"></div>
+            <div class="status-light"></div>
+            <div class="status-light"></div>
+          </div>
+          <div class="number-container">
+            <div class="number-place"></div>
+            <div class="number-place"></div>
+            <div class="number-place"></div>
+            <div class="number-place"></div>
+          </div>
+        </div>
+        <div class="round">
+          <div class="status">
+            <div class="status-light"></div>
+            <div class="status-light"></div>
+            <div class="status-light"></div>
+            <div class="status-light"></div>
+          </div>
+          <div class="number-container">
+            <div class="number-place"></div>
+            <div class="number-place"></div>
+            <div class="number-place"></div>
+            <div class="number-place"></div>
+          </div>
+        </div>
+        <div class="round">
+          <div class="status">
+            <div class="status-light"></div>
+            <div class="status-light"></div>
+            <div class="status-light"></div>
+            <div class="status-light"></div>
+          </div>
+          <div class="number-container">
+            <div class="number-place"></div>
+            <div class="number-place"></div>
+            <div class="number-place"></div>
+            <div class="number-place"></div>
+          </div>
+        </div>
+        <div class="round">
+          <div class="status">
+            <div class="status-light"></div>
+            <div class="status-light"></div>
+            <div class="status-light"></div>
+            <div class="status-light"></div>
+          </div>
+          <div class="number-container">
+            <div class="number-place"></div>
+            <div class="number-place"></div>
+            <div class="number-place"></div>
+            <div class="number-place"></div>
+          </div>
+        </div>
+        <div class="round">
+          <div class="status">
+            <div class="status-light"></div>
+            <div class="status-light"></div>
+            <div class="status-light"></div>
+            <div class="status-light"></div>
+          </div>
+          <div class="number-container">
+            <div class="number-place"></div>
+            <div class="number-place"></div>
+            <div class="number-place"></div>
+            <div class="number-place"></div>
+          </div>
+        </div>
+      </div>
+      <div class="contol">
+        <button id="reset"></button>
+        <div class="control-number-container">
+          <div class="number-place"></div>
+          <div class="number-place"></div>
+          <div class="number-place"></div>
+          <div class="number-place"></div>
+          <div class="number-place"></div>
+          <div class="number-place"></div>
+          <div class="number-place"></div>
+          <div class="number-place"></div>
+          <div class="number-place"></div>
+          <div class="number-place"></div>
+        </div>
+        <button id="submit"></button>
+      </div>
+    </div>
     <script>
       // 배열 하나 만들고,
       // 랜덤한 숫자(0~9)를 4개 넣어주세요.
       // 배열에 값 추가하기 : 배열.push(추가할값);
 
       const ranNum = [];
-      const selectNum = [];
 
       for (let i = 0; i < 4; i++) {
         let newNum;
 
         while (true) {
           newNum = Math.floor(Math.random() * 10);
-
           if (ranNum.indexOf(newNum) === -1) {
             break;
           }
         }
+        ranNum.push(newNum);
       }
-      console.log(ranNum);
+      // console.log(ranNum);
 
-      // 승리조건
-
-      if (ranNum === selectNum) {
-        ("맞췄습니다!");
+      for (let i = 0; i < 10; i++) {
+        console.log(`${i + 1}번째 시도입니다.`);
+        baseball();
+        const user = baseball();
+        if (user === 4) {
+          console.log("정답!");
+          break;
+        } else if (i === 9) {
+          console.log("패배입니다!");
+          console.log(`문제의 정답은 ${ranNum}이였습니다!`);
+        }
       }
+
+      function baseball() {
+        const userInput = [];
+        let strike = 0;
+        let ball = 0;
+
+        for (let i = 0; i < 4; i++) {
+          userInput.push(Number(prompt("숫자를 입력하세요")));
+        }
+
+        for (let i = 0; i < 4; i++) {
+          if (ranNum[i] === userInput[i]) {
+            strike++;
+          }
+
+          for (let j = 0; j < 4; j++) {
+            if (i !== j && ranNum[j] === userInput[i]) {
+              ball++;
+            }
+          }
+        }
+        console.log(`${strike}스트라이크, ${ball}볼 입니다.`);
+        console.log(userInput);
+
+        return strike;
+      }
+
+      // userInput.pop()    배열 맨 뒤의 요소를 꺼내쓴다(배열에서는 지워짐)
+      // userInput.shift()  배열 맨 앞에 요소를 꺼내쓴다(배열에서는 지워짐)
+      // userInput.splice(몇번째꺼부터, 몇개를 지울꺼냐)
     </script>
   </body>
 </html>
