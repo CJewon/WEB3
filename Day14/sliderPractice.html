@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .sliderCon {
+      width: 1200px;
+      height: 1000px;
+    }
+  </style>
+  <body>
+    <!-- <div class="sliderCon">
+        <div class="slider-View">
+            <div class="product"></div>
+            <div class="product"></div>
+            <div class="product"></div>
+            <div class="product"></div>
+        </div>
+    </div> -->
+    <script>
+      function makeNode(tagName, className) {
+        const node = document.createElement(tagName);
+        node.className.add(className);
+
+        return node;
+      }
+
+      const slider = makeNode("div", "sliderCon");
+      const sliderView = makeNode("div", "slider-View");
+      const product = makeNode("div", "product");
+
+      slider.appendChild(sliderView);
+    </script>
+  </body>
+</html>
