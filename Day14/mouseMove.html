@@ -10,20 +10,25 @@
         padding: 0;
       }
 
+      body {
+        height: 3000px;
+      }
+
       .place {
-        width: 50%;
-        height: 50vh;
-        margin: 100px auto;
+        width: 100%;
+        height: 100vh;
+        margin: 0 auto;
         background-color: pink;
       }
     </style>
   </head>
 
-  <body>
+  <body class="body">
     <div class="place"></div>
 
     <script>
       const place = document.querySelector(".place");
+      const body = document.querySelector('.body');
       let 클릭X, 클릭Y;
       let isClicked = false;
 
@@ -53,6 +58,14 @@
       place.addEventListener("mouseup", (e) => {
         isClicked = false;
       });
+
+      body.addEventListener('mousedown', (e) => {
+        const 현재위치X = window.scrollY;
+        const 현재위치Y = e.offsetY;
+
+        console.log(현재위치X);
+        console.log(현재위치Y);
+      })
     </script>
   </body>
 </html>
